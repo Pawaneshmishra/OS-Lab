@@ -55,7 +55,8 @@ int main() {
     sort(p,p+n,compareArrival);
 
     for(int i = 0; i < n; i++) {
-        p[i].start_time = (i == 0)?p[i].arrival_time:max(p[i-1].completion_time,p[i].arrival_time);
+        p[i].start_time = (i == 0)?p[i].arrival_time
+            :max(p[i-1].completion_time,p[i].arrival_time);
         p[i].completion_time = p[i].start_time + p[i].burst_time;
         p[i].turnaround_time = p[i].completion_time - p[i].arrival_time;
         p[i].waiting_time = p[i].turnaround_time - p[i].burst_time;
@@ -70,7 +71,8 @@ int main() {
     sort(p,p+n,compareID);
 
     for(int i = 0; i < n; i++) {
-        cout<<"Process ID : "<<p[i].pid<<"\n"<<"Process TAT : "<<p[i].turnaround_time<<"\n"<<"Process WT :"<<p[i].waiting_time<<"\n"<<endl;
+        cout<<"Process ID : "<<p[i].pid<<"\n"<<"Process TAT : "<<p[i].turnaround_time<<"\n"
+            <<"Process WT :"<<p[i].waiting_time<<"\n"<<endl;
     }
     cout<<"Average Turnaround Time = "<<avg_turnaround_time<<endl;
     cout<<"Average Waiting Time = "<<avg_waiting_time<<endl;
