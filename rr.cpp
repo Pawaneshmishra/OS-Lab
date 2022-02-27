@@ -94,7 +94,8 @@ int main() {
         }
 
         for(int i = 1; i < n; i++) {
-            if(burst_remaining[i] > 0 && p[i].arrival_time <= current_time && mark[i] == 0) {
+            if(burst_remaining[i] > 0 && p[i].arrival_time <= 
+               current_time && mark[i] == 0) {
                 q.push(i);
                 mark[i] = 1;
             }
@@ -120,7 +121,8 @@ int main() {
     sort(p,p+n,compare2);
 
     for(int i = 0; i < n; i++) {
-        cout<<"Process ID : "<<p[i].pid<<"\n"<<"Process TAT : "<<p[i].turnaround_time<<"\n"<<"Process WT : "<<p[i].waiting_time<<"\n"<<endl;
+        cout<<"Process ID : "<<p[i].pid<<"\n"<<"Process TAT : "<<p[i].turnaround_time
+            <<"\n"<<"Process WT : "<<p[i].waiting_time<<"\n"<<endl;
     }
     cout<<"Average Turnaround Time = "<<avg_turnaround_time<<endl;
     cout<<"Average Waiting Time = "<<avg_waiting_time<<endl;
